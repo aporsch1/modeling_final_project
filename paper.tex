@@ -55,9 +55,11 @@
         Since there are three different categories that a peer can fall into and each category is mutually exclusive with the others,
         it follows that at any time $t$, that  $N=S(t)+E(t)+I(t)$ where  $N$ is the number of peers in the system. We also make the assumption that the number of uninfected files is fixed at some $M$.
         The number of infected files at time  $t$ is given by a function  $K(t)$. When we then want to calculate the proportion of infected
-        files to uninfected files, we get the proportion  $q(t)=\frac{K(t)}{M+K(t)}$. We then assume that when a user interacts with a file,
-        that it has a probability dependent on the number of infected files on the network. Another assumption made with this model
-        is that the probability of an arbitrary file being infected is time invariant, and is only dependent on the proportion $q(t)$.
+        files to uninfected files, we get the proportion  $q(t)=\frac{K(t)}{M+K(t)}$. Thommes and Coates then assume that when a user interacts with a file,
+        that it has a probability dependent on the number of infected files on the network and that the probability of an arbitrary file being infected is 
+        time invariant, and is only dependent on the proportion $q(t)$, while I modeled the probability of a file being infected with a poisson distribution with
+        probability mass function given by $P(K=k | \lambda) = \frac{e^{-\lambda}\lambda^k}{k!}$ where $K$ is a random variable representing the number of infected files
+        infected by a peer and $k\in\mathbb{N}$ representing the number of files encountered and $\lambda(t)$ is the mean rate of of infected file encounters per minute.
         We call the function that determines this probability  $f{q(t)}$. Then, for the last introduction of new variables, we have three
         other parameters for the following three actions: a peer downloading a file from another peer, a peer executing a shared file, 
         and a peer recovering. The parameters are then,  $\lambda_S$:  the rate in files per minute at which a peer downloads new files, 
@@ -84,9 +86,10 @@
             \frac{dS(t)}{dt}=-\lambda_S S(t)f{q(t)}+\lambda_R I(t)
         \]
     \subsection{results}
-    In order to find an equilibrium, if one exists, in this network we have to find a $t=T$ 
-    such that $\frac{dE(T)}{dt}=\frac{dI(T)}{dt}=\frac{dS(T)}{dt}=0$. Thommes and Coates denote the equilibrium
-    values for $E,I$, and  $S$ as  $\hat{E}, \hat{I}$ and $\hat{S}$
+    Thommes and Coates did their simulations as written above with a uniform distribution while the main difference between our simulations was the probability distribution chosen.
+    Since some accounts might only have infected files, existing with the goal to only infect other accounts and plenty of clean accounts, I figured that a poisson distribution
+    would be a better choice for modeling the infected files per peer. Now, if we use the expectation of that distribution in order to model the spread of some 
+    virus over a peer to peer network, we use a formula, 
 
 
 \bibliography{paper}
