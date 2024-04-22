@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1713807400 "paper.aux" "paper.bbl" "paper" 1713807401
+["bibtex paper"] 1713807400 "paper.aux" "paper.bbl" "paper" 1713807655
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1713807401 1497 63805054bac9b5cbb86a53902d9f4e45 "pdflatex"
+  "paper.aux" 1713807655 1497 63805054bac9b5cbb86a53902d9f4e45 "pdflatex"
   "paper.bib" 1713804231 1523 505d0fbf916d9340eeddeda55535f42b ""
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1713807400 "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" "paper.pdf" "paper" 1713807401
-  "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" 1713807399 9985 7c216982024ef249d8b27cff088a055f ""
+["pdflatex"] 1713807655 "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" "paper.pdf" "paper" 1713807655
+  "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" 1713807655 9985 7c216982024ef249d8b27cff088a055f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -94,11 +94,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1655828428 2826443 4c8f3370e32e125302c702889d224207 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "2MPoisson.png" 1713806639 48218 a2da9eb36e088417e0f9a0876c1a7848 ""
+  "2MPoisson.png" 1713807652 47590 da0e45f637dc01e0e9c0787545064d69 ""
   "2MUniform.png" 1713806650 46587 99632b5806fe746c8f8eaf2a44efebba ""
-  "paper.aux" 1713807401 1497 63805054bac9b5cbb86a53902d9f4e45 "pdflatex"
+  "paper.aux" 1713807655 1497 63805054bac9b5cbb86a53902d9f4e45 "pdflatex"
   "paper.bbl" 1713807400 935 60119c0730a47762d9f9e2489eb11d6d "bibtex paper"
-  "paper.tex" 1713807399 9985 7c216982024ef249d8b27cff088a055f ""
+  "paper.tex" 1713807655 9985 7c216982024ef249d8b27cff088a055f ""
   (generated)
   "paper.aux"
   "paper.log"
