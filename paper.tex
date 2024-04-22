@@ -32,11 +32,11 @@
         were illustrative of the fun people could have with the internet, and also the malicious actions people could take using the internet.
         Peer to peer networks can be susceptible to various types of viruses, including self-propogating viruses such as the Samy worm \cite{VICE_2015}.\newline
         
-        Obviously the websites listed above have differences, but the main connection between them is that there are multiple users across a network
+        Obviously, the websites listed above have differences, but the main connection between them is that there are multiple users across a network
         who each have their own files or links or images publicly available for others to view or download. If a user wants to visit another user's 
         page or download another user's file(s), the user's web-client will have to connect with the other user and will then do what it was asked to do.\newline
 
-        Viruses have had a lot of success against networks like these, people can download things without being aware of it, and then viruses can download a payload to their 
+        Some P2P networks, like Napster, have made it nearly impossibly to transmit infected files, but among other systems of the same class viruses have had a lot of success against networks like these, people can download things without being aware of it, and then viruses can download a payload to their 
         computer that adds itself to her files (so other people can download it by accident) and alters her system somehow. These viruses can behave quite similarly to 
         *actual* viruses. This means that a whole set of models, epidemiological models, are on the table to be used.\newline
         
@@ -45,6 +45,10 @@
         or other similar viruses, they can propagate to thousands of users in very little time. If people are able to predict the spread of
         a virus inside of P2P networks, they are able to better respond to the virus at hand and better understand how to secure their network more.
         This modeling will take place in a simulation of P2P networks to assess a network's potential for propagation of viruses.\newline
+
+        In Thommes and Coates paper on the same subject, they made the model assumption that the distribution of the infected files in the system was uniform. Essentially
+        stating that each user has an equal likelihood of having an infected file, and that all users have the same expected number of infected files. However, all people are not equally
+        likely to interact with infected files, or fall for internet-scams or viruses in general. In particular, the elderly have been shown to have a significantly higher risk factor for 
 
     \section{Methods and Model}
     
@@ -85,11 +89,44 @@
         \[
             \frac{dS(t)}{dt}=-\lambda_S S(t)f{q(t)}+\lambda_R I(t)
         \]
-    \subsection{results}
+    \subsection{Results}
     Thommes and Coates did their simulations as written above with a uniform distribution while the main difference between our simulations was the probability distribution chosen.
     Since some accounts might only have infected files, existing with the goal to only infect other accounts and plenty of clean accounts, I figured that a poisson distribution
     would be a better choice for modeling the infected files per peer. Now, if we use the expectation of that distribution in order to model the spread of some 
-    virus over a peer to peer network, we use a formula, 
+    virus over a peer to peer network, we the formula for the probability mass function for the poisson, with
+    the parameter (generally seen as $\lambda$) $q(t)$ as described in the methods section.
+
+    When we graph the model that uses the uniform distribution and the model that uses the poisson distribution, the models actually produce much more
+    similar results than expected. With the initial values given by Thommes and Coates 
+    for their examples, with $\lambda_E=\lambda_S=.035$ and  $\lambda_R = .007$ and then starting in a system with 6 million files, 10,000 exposed and 1 infected peer
+    we get Figures 1 and Figure 2. The probability distribution doesn't seem to have much of an effect on the equilibrium state of the system, and the two plots with
+    those initial conditions and parameter values are incredibly similar.
+
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[scale=0.5]{Uniform(x10).png}}
+        \caption{f(q(t)) as uniform distribution}
+    \end{figure}
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[scale=0.5]{Poisson(x10).png}}
+        \caption{f(q(t)) as Poisson distribution}
+    \end{figure}
+
+    Now, with a radically different set of initial conditions and parameter values from the first case, you can see some slight variations between the two models. When initial conditions were chosen as
+    $\lambda_E = 0.1, \lambda_S = .001,$ and $\lambda_R = .0001$ with 1000 total peers, 30 exposed and 1 infected, along with 10,000 total files. We get figures 3 and 4, which are still relatively similar,
+    but have different times of intersection, where the number of exposed increases and passes the number of infected, while the number of susceptible rests at near 0 for both models.
+    This behavior is a good indicator that even with small infection rates, if there is a small number of total files and a smaller number of users, it is hard to avoid
+    an outcome where almost every user is either exposed to harmful files or is currently infected with malware of some kind.
+
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[scale=0.5]{Uniform(.1,.001,.0001).png}}
+        \caption{f(q(t)) as uniform distribution with new parameters}
+    \end{figure}
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[scale=0.5]{Poisson(.1,.001,.0001).png}}
+        \caption{f(q(t)) as Poisson distribution with new parameters}
+    \end{figure}
+
+
 
 
 \bibliography{paper}
