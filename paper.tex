@@ -48,7 +48,8 @@
 
         In Thommes and Coates paper on the same subject, they made the model assumption that the distribution of the infected files in the system was uniform. Essentially
         stating that each user has an equal likelihood of having an infected file, and that all users have the same expected number of infected files. However, all people are not equally
-        likely to interact with infected files, or fall for internet-scams or viruses in general. In particular, the elderly have been shown to have a significantly higher risk factor for 
+        likely to interact with infected files, or fall for internet-scams or viruses in general. In particular, the elderly have been shown to have a significantly higher risk factor for cyber
+        threats, and the updated version of Thommes and Coates epidemiological model is presented here with a reflective update.
 
     \section{Methods and Model}
     
@@ -63,13 +64,20 @@
         that it has a probability dependent on the number of infected files on the network and that the probability of an arbitrary file being infected is 
         time invariant, and is only dependent on the proportion $q(t)$, while I modeled the probability of a file being infected with a poisson distribution with
         probability mass function given by $P(K=k | \lambda) = \frac{e^{-\lambda}\lambda^k}{k!}$ where $K$ is a random variable representing the number of infected files
-        infected by a peer and $k\in\mathbb{N}$ representing the number of files encountered and $\lambda(t)$ is the mean rate of of infected file encounters per minute.
+        infected by a peer and $k\in\mathbb{N}$ representing the number of files encountered and $\lambda(t)$ is a rate of of infected file encounters per minute. In this model we will
+        have two different sub-populations. One population, representing people of lower risk of downloading files of dubious origin, or clicking on malicious links, will have a higher rate parameter,
+        $\lambda_1$ and the other population, representing the lower risk population will have a lower rate parameter for interacting with malicious files, $\lambda_2$.
         We call the function that determines this probability  $f{q(t)}$. Then, for the last introduction of new variables, we have three
         other parameters for the following three actions: a peer downloading a file from another peer, a peer executing a shared file, 
         and a peer recovering. The parameters are then,  $\lambda_S$:  the rate in files per minute at which a peer downloads new files, 
         $\lambda_E$: average rate, in files per minute, at which each peer executes files, our last rate parameter is  $\lambda_R$:
         which is the average rate of recoveries per minute, at which infected peers recover. A recovery occurs when all infected files are
         removed, returning the peer to susceptible. The state cycle of this model is  $S\to E\to I \to S\ldots$\newline
+
+        According to the 2022 Census, just over 17\% of Americans are over 65\cite{uscensus2022}. These people are at a significantly higher risk for 
+        cyber crimes and general security breaches\cite{blackwood-brown2018}. Some estimates of their risk factor, have the elderly at up to 10 times higher
+        risk for clicking on malicous links and other similar attacks, all of which are present on P2P systems which are examined here. For this reason, we will set
+        $\lambda_1 = 10\lambda_2$, and then we can adjust $\lambda_2$ and see how it affects the behavior of the system. 
 
         We now derive our differential equations.
         \subsubsection{Rate at Which Infected Peers Change}
@@ -93,37 +101,21 @@
     Thommes and Coates did their simulations as written above with a uniform distribution while the main difference between our simulations was the probability distribution chosen.
     Since some accounts might only have infected files, existing with the goal to only infect other accounts and plenty of clean accounts, I figured that a poisson distribution
     would be a better choice for modeling the infected files per peer. Now, if we use the expectation of that distribution in order to model the spread of some 
-    virus over a peer to peer network, we the formula for the probability mass function for the poisson, with
-    the parameter (generally seen as $\lambda$) $q(t)$ as described in the methods section.
+    virus over a peer to peer network, we the formula for the probability mass function for the poisson, with the parameter (generally seen as $\lambda$) $q(t)$ as described in the 
+    methods section. In order to see how the difference in distribution affects the behavior of the system, we take the same initial conditions as described in Thommes and Coates paper
+    and simulate the virus in a network.\newline
 
-    When we graph the model that uses the uniform distribution and the model that uses the poisson distribution, the models actually produce much more
-    similar results than expected. With the initial values given by Thommes and Coates 
-    for their examples, with $\lambda_E=\lambda_S=.035$ and  $\lambda_R = .007$ and then starting in a system with 6 million files, 10,000 exposed and 1 infected peer
-    we get Figures 1 and Figure 2. The probability distribution doesn't seem to have much of an effect on the equilibrium state of the system, and the two plots with
-    those initial conditions and parameter values are incredibly similar.
-
+    We actually see the following figures:
     \begin{figure}[htbp]
-        \centerline{\includegraphics[scale=0.5]{Uniform(x10).png}}
-        \caption{f(q(t)) as uniform distribution}
-    \end{figure}
-    \begin{figure}[htbp]
-        \centerline{\includegraphics[scale=0.5]{Poisson(x10).png}}
-        \caption{f(q(t)) as Poisson distribution}
+        \centering
+        \includegraphics[width=0.5\textwidth]{2MPoisson.png}
+        \caption{Image depicting initial conditions given by Thommes and Coates with varied Poisson distribution.}
     \end{figure}
 
-    Now, with a radically different set of initial conditions and parameter values from the first case, you can see some slight variations between the two models. When initial conditions were chosen as
-    $\lambda_E = 0.1, \lambda_S = .001,$ and $\lambda_R = .0001$ with 1000 total peers, 30 exposed and 1 infected, along with 10,000 total files. We get figures 3 and 4, which are still relatively similar,
-    but have different times of intersection, where the number of exposed increases and passes the number of infected, while the number of susceptible rests at near 0 for both models.
-    This behavior is a good indicator that even with small infection rates, if there is a small number of total files and a smaller number of users, it is hard to avoid
-    an outcome where almost every user is either exposed to harmful files or is currently infected with malware of some kind.
-
     \begin{figure}[htbp]
-        \centerline{\includegraphics[scale=0.5]{Uniform(.1,.001,.0001).png}}
-        \caption{f(q(t)) as uniform distribution with new parameters}
-    \end{figure}
-    \begin{figure}[htbp]
-        \centerline{\includegraphics[scale=0.5]{Poisson(.1,.001,.0001).png}}
-        \caption{f(q(t)) as Poisson distribution with new parameters}
+        \centering
+        \includegraphics[width=0.5\textwidth]{2MUniform.png}
+        \caption{Image depicting initial conditions given by Thommes and Coates with Uniform distribution.}
     \end{figure}
 
 
