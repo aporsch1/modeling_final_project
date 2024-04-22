@@ -98,26 +98,34 @@
             \frac{dS(t)}{dt}=-\lambda_S S(t)f{q(t)}+\lambda_R I(t)
         \]
     \subsection{Results}
-    Thommes and Coates did their simulations as written above with a uniform distribution while the main difference between our simulations was the probability distribution chosen.
-    Since some accounts might only have infected files, existing with the goal to only infect other accounts and plenty of clean accounts, I figured that a poisson distribution
-    would be a better choice for modeling the infected files per peer. Now, if we use the expectation of that distribution in order to model the spread of some 
-    virus over a peer to peer network, we the formula for the probability mass function for the poisson, with the parameter (generally seen as $\lambda$) $q(t)$ as described in the 
-    methods section. In order to see how the difference in distribution affects the behavior of the system, we take the same initial conditions as described in Thommes and Coates paper
-    and simulate the virus in a network.\newline
+        Thommes and Coates did their simulations as written above with a uniform distribution while the main difference between our simulations was the probability distribution chosen.
+        Since some accounts might only have infected files, existing with the goal to only infect other accounts and plenty of clean accounts, I figured that a poisson distribution
+        would be a better choice for modeling the infected files per peer. Now, if we use the expectation of that distribution in order to model the spread of some 
+        virus over a peer to peer network, we the formula for the probability mass function for the poisson, with the parameter (generally seen as $\lambda$) $q(t)$ as described in the 
+        methods section. In order to see how the difference in distribution affects the behavior of the system, we take the same initial conditions as described in Thommes and Coates paper
+        and simulate the virus in a network.\newline
 
-    We actually see the following figures:
-    \begin{figure}[htbp]
-        \centering
-        \includegraphics[width=0.5\textwidth]{2MPoisson.png}
-        \caption{Image depicting initial conditions given by Thommes and Coates with varied Poisson distribution.}
-    \end{figure}
+        With the initial conditions describes in Thommes and Coates, with $\lambda_E = \lambda_S=3.47\times 10^{-3}$ files per minute (5 downloads per day). Then we consider the average recovery
+        time to be 24 hours, making $\lambda_R=6.94\times 10^{-4}$. The number of peers is 2 million and there are 60 million clean files, $M$. Initially there are 10,000 exposed files, all sharing one
+        infected file. In the first figure we have $\lambda_1=5\times 10^{-4}$ and $\lambda_2=5\times 10^{-5}$ for the higher and lower rates respectively.
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.5\textwidth]{2MPoisson.png}
+            \caption{Image depicting initial conditions given by Thommes and Coates with varied Poisson distribution.}
+        \end{figure}
 
-    \begin{figure}[htbp]
-        \centering
-        \includegraphics[width=0.5\textwidth]{2MUniform.png}
-        \caption{Image depicting initial conditions given by Thommes and Coates with Uniform distribution.}
-    \end{figure}
-
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.5\textwidth]{2MUniform.png}
+            \caption{Image depicting initial conditions given by Thommes and Coates with Uniform distribution.}
+        \end{figure}
+        These models actually appear diverge significantly. The model equipped with the varied poisson distribution seems to show that generic viruses present more of a threat than expected by Thommes and Coates
+        with their paper. Even when you decrease the number of exposed peers, or the number of infected files in the system, the system hits a steady state result where
+        most of the users are infected and there are a minority of peers that are not infected or exposed at any point. However, if you half the time it takes to recover, the system looks much more similar to the
+        system given with the uniform distribution and the otherwise identical conditions. Finding a closed form formula for the convergence of the system is much more difficult with another distribution equipped, 
+        than it is with the uniform distribution, but that would be a useful next step for future work. 
+    
+    \subsection{Conclusion}
 
 
 
