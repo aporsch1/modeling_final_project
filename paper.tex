@@ -75,9 +75,11 @@
         removed, returning the peer to susceptible. The state cycle of this model is  $S\to E\to I \to S\ldots$\newline
 
         According to the 2022 Census, just over 17\% of Americans are over 65\cite{uscensus2022}. These people are at a significantly higher risk for 
-        cyber crimes and general security breaches\cite{blackwood-brown2018}. Some estimates of their risk factor, have the elderly at up to 10 times higher
+        cyber crimes and general security breaches\cite{blackwood-brown2018}. Similarly, people under the age of 15 are also at significant risk. 
+        Some estimates of their risk factor, have the elderly at up to 10 times higher
         risk for clicking on malicous links and other similar attacks, all of which are present on P2P systems which are examined here. For this reason, we will set
-        $\lambda_1 = 10\lambda_2$, and then we can adjust $\lambda_2$ and see how it affects the behavior of the system. 
+        $\lambda_1 = 10\lambda_2$, and then we can adjust $\lambda_2$ and see how it affects the behavior of the system. While fewer studies have derived estimates for
+        younger populations, we assume it is something similar. 
 
         We now derive our differential equations.
         \subsubsection{Rate at Which Infected Peers Change}
@@ -110,25 +112,41 @@
         infected file. In the first figure we have $\lambda_1=5\times 10^{-4}$ and $\lambda_2=5\times 10^{-5}$ for the higher and lower rates respectively.
         \begin{figure}[htbp]
             \centering
-            \includegraphics[width=0.5\textwidth]{2MPoisson.png}
+            \includegraphics[width=0.9\textwidth]{2MPoisson.png}
             \caption{Image depicting initial conditions given by Thommes and Coates with varied Poisson distribution.}
         \end{figure}
 
         \begin{figure}[htbp]
             \centering
-            \includegraphics[width=0.5\textwidth]{2MUniform.png}
+            \includegraphics[width=0.9\textwidth]{2MUniform.png}
             \caption{Image depicting initial conditions given by Thommes and Coates with Uniform distribution.}
         \end{figure}
         These models actually appear diverge significantly. The model equipped with the varied poisson distribution seems to show that generic viruses present more of a threat than expected by Thommes and Coates
         with their paper. Even when you decrease the number of exposed peers, or the number of infected files in the system, the system hits a steady state result where
         most of the users are infected and there are a minority of peers that are not infected or exposed at any point. However, if you half the time it takes to recover, the system looks much more similar to the
-        system given with the uniform distribution and the otherwise identical conditions.
+        system given with the uniform distribution and the otherwise identical conditions. This indicates that by one metric, these viruses are at least 2 times more dangerous than expected. This is probably because
+        if one group, even if they are a minority of the population is taking on malware more quickly than any other group of the population, they will have so many malicious files that almost any interaction with them
+        will lead to a switch from susceptible to exposed or to infected. So while they might not be a majority of the population, we can clearly see that having a vulnerable minority puts the entire group at risk.
+
+        Another interesting factor with using the alternate distribution is that the time to convergence doesn't seem to increase even if the number of initially exposed peers is decreased by multiple orders of magnitude \textit{and}
+        the number of total files is increased by an order of magnitude. When you look at the graph, it looks essentially identical to the graph given by the initial conditions given by Thommes and Coates except that the axes are completely
+        different.
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.9\textwidth]{HUGESUSCEPTIBLEPOISSON.png}
+            \caption{varied poisson with the ratio of bad files $10^3$ times smaller and the number of exposed peers 100 times smaller }
+        \end{figure}
     
     \section{Conclusion}
         The model described has shown that the propagation of computer viruses on P2P networks is possibly more dangerous than predicted by mathematicians such as Thommes and Coates if
-        you account for the increased danger certain subsets of the population face. Finding a closed form formula for the convergence of the system is much more difficult with another distribution equipped, 
-        than it is with the uniform distribution, but that would be a useful next step for future work. 
-
+        you account for the increased danger certain subsets of the population face. I also witnessed some really odd behaviors about the time it takes to hit the steady state for the system 
+        equipped with the poisson distribution. Finding a closed form formula for the convergence of the system is much more difficult with another distribution equipped, 
+        than it is with the uniform distribution, but that would be a useful next step for future work. Finding a closed form solution would also help understand the question about why the 
+        steady state is reached at approximately the same time regardless of concentration of infected files. Along with that would be actual physical tests with a worm or 'malicious' file that is generally benign,
+        and then track how it propagates across a network and use that research in order to craft models that are potentially more accurate and use them to verify the changes in rate parameters or statistical
+        distributions used.
+    \section{Acknowledgements}
+        I'd like to thank Monica and Cara for giving me advice to look further into the assumptions I was making about the demographics of the systems I was looking at as well as helping with some spelling mistakes.
 
 \bibliography{paper}
 \bibliographystyle{plain}

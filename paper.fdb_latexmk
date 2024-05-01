@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1713816961 "paper.aux" "paper.bbl" "paper" 1713817190
+["bibtex paper"] 1714535045 "paper.aux" "paper.bbl" "paper" 1714535046
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1713817190 1590 dd12ce5966aaee02e739deb2945ae6e9 "pdflatex"
+  "paper.aux" 1714535046 1911 aa7148476e77fb95d6f5c535be6899d6 "pdflatex"
   "paper.bib" 1713804231 1523 505d0fbf916d9340eeddeda55535f42b ""
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1713817189 "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" "paper.pdf" "paper" 1713817190
-  "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" 1713817189 11768 214b9142f23c851e21ea4e4d592d7f54 ""
+["pdflatex"] 1714535045 "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" "paper.pdf" "paper" 1714535046
+  "/Users/abeporschet/Desktop/Modeling/final_proj/modeling_final_project/paper.tex" 1714535044 14236 e8a1300e404d71895b6022448ded5bf6 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -97,9 +97,10 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "2MPoisson.png" 1713807652 47590 da0e45f637dc01e0e9c0787545064d69 ""
   "2MUniform.png" 1713806650 46587 99632b5806fe746c8f8eaf2a44efebba ""
-  "paper.aux" 1713817190 1590 dd12ce5966aaee02e739deb2945ae6e9 "pdflatex"
-  "paper.bbl" 1713816962 935 60119c0730a47762d9f9e2489eb11d6d "bibtex paper"
-  "paper.tex" 1713817189 11768 214b9142f23c851e21ea4e4d592d7f54 ""
+  "HUGESUSCEPTIBLEPOISSON.png" 1713923616 48702 c55aba8b76c3fc9ff58524d8bd7a7c55 ""
+  "paper.aux" 1714535046 1911 aa7148476e77fb95d6f5c535be6899d6 "pdflatex"
+  "paper.bbl" 1714535045 935 60119c0730a47762d9f9e2489eb11d6d "bibtex paper"
+  "paper.tex" 1714535044 14236 e8a1300e404d71895b6022448ded5bf6 ""
   (generated)
   "paper.aux"
   "paper.log"
